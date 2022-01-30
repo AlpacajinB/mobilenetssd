@@ -152,6 +152,12 @@ def event_handle(event,json_line):
         if msg == "สวัสดี":
         replyObj = TextSendMessage(text="สวัสดีครับ")
         line_bot_api.reply_message(rtoken, replyObj)
+    elif msgType == "covid":
+        url = "https://covid19.ddc.moph.go.th/api/Cases/today-cases-all"
+        response = request.get(url)
+        response = response.json()
+        replyObj = TextsendMessage(text=str(response))
+        line_bot_api.reply_message(rtoken, replyObj)
     elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
