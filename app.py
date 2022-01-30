@@ -158,6 +158,16 @@ def event_handle(event,json_line):
         response = response.json()
         replyObj = TextsendMessage(text=str(response))
         line_bot_api.reply_message(rtoken, replyObj)
+    elif msgType == "text":
+         msg = str(event["message"]["text'])
+         if msg == "หิวข้าวไหม":
+         replyObj = TextSendMessage(text="ไม่เลยครับ ยังไงคุณก็อย่าลืมทานข้าวนะ")
+         line_bot_api.reply_message(rtoken, replyObj)
+    elif msgType == "text":
+         msg = str(event["message"]["text'])
+         if msg == "สบายดีไหม":   
+         replyObj = TextSendMessage(text="สบายดีครับ คนน่ารักของนัมขอบคุณที่เป็นห่วงนะ")
+         line_bot_api.reply_message(rtoken, replyObj)
     elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
