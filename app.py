@@ -150,20 +150,15 @@ def event_handle(event,json_line):
     if  msgType == "text":
         msg = str(event["message"]["text"])
         if msg == "สวัสดี":
-          replyObj = TextSendMessage(text="สวัสดีครับ")
-          line_bot_api.reply_message(rtoken, replyObj)
-        elif msgType == "covid":
-          url = "https://covid19.ddc.moph.go.th/api/Cases/today-cases-all"
-          response = request.get(url)
-          response = response.json()
-          replyObj = TextsendMessage(text=str(response))
-          line_bot_api.reply_message(rtoken, replyObj)
+            replyObj = TextSendMessage(text="สวัสดีครับ")
+            line_bot_api.reply_message(rtoken, replyObj)
         elif msg == "หิวข้าวไหม":
-          replyObj = TextSendMessage(text="ไม่เลยครับ ยังไงคุณก็อย่าลืมทานข้าวนะ")
-          line_bot_api.reply_message(rtoken, replyObj)
+            replyObj = TextSendMessage(text="ไม่เลยครับ ยังไงคุณก็อย่าลืมทานข้าวนะ")
+            line_bot_api.reply_message(rtoken, replyObj)
         elif msg == "สบายดีไหม":   
-          replyObj = TextSendMessage(text="สบายดีครับ คนน่ารักของนัมขอบคุณที่เป็นห่วงนะ")
-          line_bot_api.reply_message(rtoken, replyObj)
+            replyObj = TextSendMessage(text="สบายดีครับ คนน่ารักของนัมขอบคุณที่เป็นห่วงนะ")
+            line_bot_api.reply_message(rtoken, replyObj)
+        elif msg == 
         else :
             headerx = request.headers
             json_headers = ({k:v for k, v in headers.items()})
